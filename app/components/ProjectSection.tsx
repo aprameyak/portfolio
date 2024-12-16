@@ -82,23 +82,60 @@ const ProjectSection: React.FC = () => {
     );
   };
 
+  const styles: { [key: string]: React.CSSProperties } = {
+    myProjects: {
+      fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
+      fontSize: 'large',
+      fontWeight: 'normal',
+      backgroundColor: 'rgb(67, 67, 67)',
+      display: 'flex',
+      flexDirection: 'column',
+      boxSizing: 'border-box',
+      paddingLeft: '15%',
+      height: '100vh',
+      textAlign: 'center',
+    },
+    carouselContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '10px',
+      position: 'relative',
+    },
+    carouselContent: {
+      width: '100%',
+      maxWidth: '600px',
+      height: 'auto',
+      overflow: 'hidden',
+    },
+    arrowBtn: {
+      backgroundColor: '#5a189a',
+      color: 'white',
+      border: 'none',
+      padding: '10px 20px',
+      cursor: 'pointer',
+      borderRadius: '5px',
+      fontSize: '1.2rem',
+    },
+    upArrow: {
+      marginBottom: '10px',
+    },
+    downArrow: {
+      marginTop: '10px',
+    },
+  };
+
   return (
-    <section 
-      id="projects" 
-      className="myprojects"
-    >
-      <div 
-        className="carousel-container"
-      >
-        <button 
-          className="arrow-btn left-arrow" 
+    <section id="projects" style={styles.myProjects}>
+      <div style={styles.carouselContainer}>
+        <button
+          style={styles.arrowBtn}
+          className="up-arrow"
           onClick={handlePrev}
         >
           &uarr;
         </button>
-        <div 
-          className="carousel-content"
-        >
+        <div style={styles.carouselContent}>
           <ProjectCard
             title={projects[currentIndex].title}
             description={projects[currentIndex].description}
@@ -108,8 +145,9 @@ const ProjectSection: React.FC = () => {
             liveDemo={projects[currentIndex].liveDemo}
           />
         </div>
-        <button 
-          className="arrow-btn right-arrow" 
+        <button
+          style={styles.arrowBtn}
+          className="down-arrow"
           onClick={handleNext}
         >
           &darr;

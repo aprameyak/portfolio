@@ -38,7 +38,6 @@ const ExperienceSection: React.FC = () => {
       picturelink: 'https://headstarter.co/',
     },
     { 
-
       name: 'Amazon Web Services',
       title: 'Certified Solutions Architect',
       description:
@@ -62,23 +61,60 @@ const ExperienceSection: React.FC = () => {
     );
   };
 
+  const styles: { [key: string]: React.CSSProperties } = {
+    myexperience: {
+      fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
+      fontSize: 'large',
+      fontWeight: 'normal',
+      backgroundColor: 'rgb(67, 67, 67)',
+      display: 'flex',
+      boxSizing: 'border-box',
+      height: '100vh',
+      flexDirection: 'column',
+      paddingLeft: '15%',
+      textAlign: 'center',
+    },
+    carouselContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '10px',
+      position: 'relative',
+    },
+    carouselContent: {
+      width: '100%',
+      maxWidth: '600px',
+      height: 'auto',
+      overflow: 'hidden',
+    },
+    arrowBtn: {
+      backgroundColor: '#5a189a',
+      color: 'white',
+      border: 'none',
+      padding: '10px 20px',
+      cursor: 'pointer',
+      borderRadius: '5px',
+      fontSize: '1.2rem',
+    },
+    upArrow: {
+      marginBottom: '10px',
+    },
+    downArrow: {
+      marginTop: '10px',
+    },
+  };
+
   return (
-    <section 
-      id="experience" 
-      className="myexperience"
-    >
-      <div 
-        className="carousel-container"
-      >
-        <button 
-          className="arrow-btn up-arrow" 
+    <section id="experience" style={styles.myexperience}>
+      <div style={styles.carouselContainer}>
+        <button
+          style={styles.arrowBtn}
+          className="up-arrow"
           onClick={handlePrev}
         >
           &uarr;
         </button>
-        <div 
-          className="carousel-content"
-        >
+        <div style={styles.carouselContent}>
           <ExperienceCard
             name={experiences[currentIndex].name}
             title={experiences[currentIndex].title}
@@ -87,8 +123,9 @@ const ExperienceSection: React.FC = () => {
             picturelink={experiences[currentIndex].picturelink}
           />
         </div>
-        <button 
-          className="arrow-btn down-arrow" 
+        <button
+          style={{ ...styles.arrowBtn, ...styles.arrowBtnHover }}
+          className="down-arrow"
           onClick={handleNext}
         >
           &darr;
