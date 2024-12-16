@@ -1,0 +1,65 @@
+.landingpage {
+    scroll-snap-align: start; 
+    height: 100vh; 
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    font-weight: normal;
+    background-color: rgb(67, 67, 67);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh; 
+    flex-direction: column; 
+    padding-left: 15%;
+}
+.profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.nowrap {
+    white-space: nowrap; 
+}
+.whoami {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 10%;
+}
+.uni h1 {
+    display: inline;
+}
+.whoamitext {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.color1 {
+    color: #c77dff;
+}
+.color2 {
+    color: #e0aaff;
+}
+.color3 {
+    color:white;
+}
+.color4 {
+    color: #9d4edd; 
+}
+.color5 {
+    color: #5a189a
+}

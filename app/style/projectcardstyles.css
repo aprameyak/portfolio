@@ -1,0 +1,53 @@
+.projectfoot a {
+    font-size: 18px;
+    text-decoration: none;
+    position: bottom;
+    top: 90%;
+}
+.project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px; 
+    padding: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 450px;
+    max-width: 800px; 
+    background-color: white;
+}
+.projectfoot {
+    margin-top: auto; 
+    display: flex;
+    gap: 8px; 
+    justify-content: space-between; 
+}
+.project-card h1 {
+    font-size: 24px;
+    height: 80px; 
+}
+  
+.project-card h2 {
+    font-size: 18px;
+    height: 80px; 
+}
+  
+.project-card p {
+    font-size: 16px;
+    flex-grow: 1; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+.color1 {
+    color: #c77dff;
+}
+.color2 {
+    color: #e0aaff;
+}
+.color3 {
+    color:white;
+}
+.color4 {
+    color: #9d4edd; 
+}
+.color5 {
+    color: #5a189a
+}
