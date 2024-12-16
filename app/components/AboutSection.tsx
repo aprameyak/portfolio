@@ -1,32 +1,32 @@
 'use client';
 import Image from "next/image";
-import '../style/aboutstyles.css';
+import styles from '../style/aboutstyles.css';
 
 
 const HomeSection: React.FC = () => {
   return (
     <section 
       id="about" 
-      className="aboutme"
+      className="{styles.aboutme}"
     >
       <div 
-        className="aboutmetext"
+        className="{styles.aboutmetext}"
       >
         <h2 
-          className="color3"
+          className="{styles.color3}"
         >
           I am a student at the
         </h2>
         <span 
-          className="nowrap uni"
+          className="{styles.nowrap} {styles.uni}"
         >
           <h1 
-            className="color2"
+            className="{styles.color2}"
           >
             University of Maryland
           </h1>
           <h1 
-            className="color3"
+            className="{styles.color3}"
           >
             .
           </h1>
