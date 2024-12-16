@@ -1,0 +1,21 @@
+<script>start("/Users/aprameyakannan/Documents/PortfolioWebSite/.next/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("cache","cache",1,256,"256 B",1734362701,"12/16/24, 10:25:01 AM");</script>
+<script>addRow("diagnostics","diagnostics",1,128,"128 B",1734362669,"12/16/24, 10:24:29 AM");</script>
+<script>addRow("server","server",1,544,"544 B",1734362679,"12/16/24, 10:24:39 AM");</script>
+<script>addRow("static","static",1,192,"192 B",1734362675,"12/16/24, 10:24:35 AM");</script>
+<script>addRow("types","types",1,160,"160 B",1734362671,"12/16/24, 10:24:31 AM");</script>
+<script>addRow("app-build-manifest.json","app-build-manifest.json",0,999,"999 B",1734362675,"12/16/24, 10:24:35 AM");</script>
+<script>addRow("app-path-routes-manifest.json","app-path-routes-manifest.json",0,46,"46 B",1734362678,"12/16/24, 10:24:38 AM");</script>
+<script>addRow("BUILD_ID","BUILD_ID",0,21,"21 B",1734362679,"12/16/24, 10:24:39 AM");</script>
+<script>addRow("build-manifest.json","build-manifest.json",0,995,"995 B",1734362675,"12/16/24, 10:24:35 AM");</script>
+<script>addRow("export-marker.json","export-marker.json",0,94,"94 B",1734362681,"12/16/24, 10:24:41 AM");</script>
+<script>addRow("images-manifest.json","images-manifest.json",0,515,"515 B",1734362681,"12/16/24, 10:24:41 AM");</script>
+<script>addRow("next-minimal-server.js.nft.json","next-minimal-server.js.nft.json",0,7914,"7.7 kB",1734362686,"12/16/24, 10:24:46 AM");</script>
+<script>addRow("next-server.js.nft.json","next-server.js.nft.json",0,46984,"45.9 kB",1734362686,"12/16/24, 10:24:46 AM");</script>
+<script>addRow("package.json","package.json",0,20,"20 B",1734362669,"12/16/24, 10:24:29 AM");</script>
+<script>addRow("prerender-manifest.json","prerender-manifest.json",0,685,"685 B",1734362681,"12/16/24, 10:24:41 AM");</script>
+<script>addRow("react-loadable-manifest.json","react-loadable-manifest.json",0,2,"2 B",1734362675,"12/16/24, 10:24:35 AM");</script>
+<script>addRow("required-server-files.json","required-server-files.json",0,5773,"5.6 kB",1734362679,"12/16/24, 10:24:39 AM");</script>
+<script>addRow("routes-manifest.json","routes-manifest.json",0,751,"751 B",1734362983,"12/16/24, 10:29:43 AM");</script>
+<script>addRow("trace","trace",0,237795,"232 kB",1734362686,"12/16/24, 10:24:46 AM");</script>
