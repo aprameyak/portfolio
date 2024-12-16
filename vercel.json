@@ -1,1 +1,10 @@
-
+{
+    "framework": "nextjs",
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ]
+ }
+ 
