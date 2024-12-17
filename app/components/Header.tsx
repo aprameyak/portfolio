@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import '../style/headerstyles.css';
 
 interface HeaderProps {
   activeSection: string;
@@ -8,8 +7,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
+
   useEffect(() => {
-    const sections = document.querySelectorAll('section'); 
+    console.log('Active Section changed:', activeSection);
+  }, [activeSection]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section'); // Get all sections
     const options = {
       root: null,
       rootMargin: '0px',
@@ -19,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          setActiveSection(entry.target.id); 
         }
       });
     }, options);
@@ -31,9 +35,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     };
   }, [setActiveSection]);
 
+
   const getHeaderClass = (section: string): string => {
     const isActive = activeSection === section;
-    return isActive ? 'active' : '';
+    return isActive ? 'active' : ''; 
   };
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -74,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         style={styles.link}
         onClick={() => setActiveSection('home')}
       >
-        <h1>Home</h1>
+        <h1 style={activeSection === 'home' ? styles.active : {}}>Home</h1>
       </a>
       <a
         href="#about"
@@ -82,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         style={styles.link}
         onClick={() => setActiveSection('about')}
       >
-        <h1>About</h1>
+        <h1 style={activeSection === 'about' ? styles.active : {}}>About</h1>
       </a>
       <a
         href="#projects"
@@ -90,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         style={styles.link}
         onClick={() => setActiveSection('projects')}
       >
-        <h1>Projects</h1>
+        <h1 style={activeSection === 'projects' ? styles.active : {}}>Projects</h1>
       </a>
       <a
         href="#experience"
@@ -98,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         style={styles.link}
         onClick={() => setActiveSection('experience')}
       >
-        <h1>Experience</h1>
+        <h1 style={activeSection === 'experience' ? styles.active : {}}>Experience</h1>
       </a>
     </header>
   );

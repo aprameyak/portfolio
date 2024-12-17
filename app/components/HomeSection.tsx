@@ -1,5 +1,4 @@
 'use client';
-import Image from "next/image";
 import { CSSProperties } from 'react';
 
 const HomeSection: React.FC = () => {
@@ -28,6 +27,10 @@ const HomeSection: React.FC = () => {
       width: '150px',
       height: '150px',
       borderRadius: '50%',
+    },
+    uniH1: {
+      display: 'inline',
+      fontSize: 'xx-large',
     },
     nowrap: {
       whiteSpace: 'nowrap',
@@ -70,27 +73,28 @@ const HomeSection: React.FC = () => {
             Hi my name is
           </h3>
           <span className="nowrap uni" style={styles.nowrap}>
-            <h1 className="color1" style={styles.color1}>
-              Aprameya Kannan
-            </h1>
-            <h1 className="color3" style={styles.color3}>
-              .
-            </h1>
+              <span className="color1" style={{ ...styles.uniH1, ...styles.color1 }}>
+                  Aprameya Kannan
+          
+              </span>
+              <span className="color3" style={{ ...styles.uniH1, ...styles.color3 }}>
+                .
+              </span>
           </span>
           <h3 className="color3" style={styles.color3}>
             I am a 
           </h3>
           <span className="nowrap uni" style={styles.nowrap}>
-            <h1 className="color2" style={styles.color2}>
+            <span className="color2" style={{ ...styles.uniH1, ...styles.color2 }}>
               Developer
-            </h1>
-            <h1 className="color3" style={styles.color3}>
+            </span>
+            <span className="color3" style={{ ...styles.uniH1, ...styles.color3 }}>
               .
-            </h1>
+            </span>
           </span>
         </div>
         <div className="profile-picture" style={styles.profilePicture}>
-          <Image src="/profilepic.jpg" alt="" width={150} height={150} />
+          <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/profilepic.jpg" alt="" width={150} height={150} />
         </div>
       </div>
     </section>

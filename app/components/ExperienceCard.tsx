@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Image from "next/image";
 
 const ExperienceCard: React.FC<{
   name: string;
@@ -58,7 +57,7 @@ const ExperienceCard: React.FC<{
       </div>
       <div style={styles.experienceFoot}>
         <a href={picturelink} target="_blank" rel="noopener noreferrer">
-          <Image
+          <img
             src={picture}
             alt={`${name} - ${title}`}
             style={styles.experienceFootImg}
