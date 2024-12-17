@@ -48,18 +48,22 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       fontFamily: 'Arial, Helvetica, sans-serif',
       fontSize: 'medium',
       fontWeight: 'bold',
-      justifyContent: 'space-between',
       position: 'fixed',
+      justifyContent: 'space-evenly', 
       top: '0',
       left: '0',
       height: '100vh',
       width: '200px',
       zIndex: 1000,
       paddingLeft: '1%',
-      paddingTop: '5%',
-      paddingBottom: '5%',
       boxShadow: '2px 0px 5px rgba(0, 0, 0, 0.2)',
       backgroundColor: 'rgb(100, 100, 100)',
+    },
+    headertext: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly', 
+      height: '100%',
     },
     active: {
       textShadow: '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.8)',
@@ -73,38 +77,40 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
 
   return (
     <header style={styles.headersection}>
-      <a
-        href="#home"
-        className={`link ${getHeaderClass('home')}`}
-        style={styles.link}
-        onClick={() => setActiveSection('home')}
-      >
-        <h1 style={activeSection === 'home' ? styles.active : {}}>Home</h1>
-      </a>
-      <a
-        href="#about"
-        className={`link ${getHeaderClass('about')}`}
-        style={styles.link}
-        onClick={() => setActiveSection('about')}
-      >
-        <h1 style={activeSection === 'about' ? styles.active : {}}>About</h1>
-      </a>
-      <a
-        href="#projects"
-        className={`link ${getHeaderClass('projects')}`}
-        style={styles.link}
-        onClick={() => setActiveSection('projects')}
-      >
-        <h1 style={activeSection === 'projects' ? styles.active : {}}>Projects</h1>
-      </a>
-      <a
-        href="#experience"
-        className={`link ${getHeaderClass('experience')}`}
-        style={styles.link}
-        onClick={() => setActiveSection('experience')}
-      >
-        <h1 style={activeSection === 'experience' ? styles.active : {}}>Experience</h1>
-      </a>
+      <div style={styles.headertext}>
+        <a
+          href="#home"
+          className={`link ${getHeaderClass('home')}`}
+          style={styles.link}
+          onClick={() => setActiveSection('home')}
+        >
+          <h1 style={activeSection === 'home' ? styles.active : {}}>Home</h1>
+        </a>
+        <a
+          href="#about"
+          className={`link ${getHeaderClass('about')}`}
+          style={styles.link}
+          onClick={() => setActiveSection('about')}
+        >
+          <h1 style={activeSection === 'about' ? styles.active : {}}>About</h1>
+        </a>
+        <a
+          href="#projects"
+          className={`link ${getHeaderClass('projects')}`}
+          style={styles.link}
+          onClick={() => setActiveSection('projects')}
+        >
+          <h1 style={activeSection === 'projects' ? styles.active : {}}>Projects</h1>
+        </a>
+        <a
+          href="#experience"
+          className={`link ${getHeaderClass('experience')}`}
+          style={styles.link}
+          onClick={() => setActiveSection('experience')}
+        >
+          <h1 style={activeSection === 'experience' ? styles.active : {}}>Experience</h1>
+        </a>
+      </div>
     </header>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 
-const HomeSection: React.FC = () => {
+const AboutSection: React.FC = () => {
   const styles: { [key: string]: React.CSSProperties } = {
     aboutme: {
       paddingLeft: '15%',
@@ -12,6 +12,7 @@ const HomeSection: React.FC = () => {
       boxSizing: 'border-box',
       scrollSnapAlign: 'start',
       height: '100vh',
+      position: "relative",
     },
     socials: {
       position: 'absolute',
@@ -79,7 +80,7 @@ const HomeSection: React.FC = () => {
           </span>
           <span style={{ ...styles.uniH1, ...styles.color3 }}>.</span>
         </span>
-        <h3 style={styles.color3}>I am invested in the future of computing:</h3>
+        <h3 style={styles.color3}>Passionate about the future of technology:</h3>
         <div style={styles.focustext}>
           <h3 style={{ ...styles.focustextH3, ...styles.color3 }}>Focusing on</h3>
           <h3 style={styles.focustextH3}>&nbsp;</h3>
@@ -114,4 +115,4 @@ const HomeSection: React.FC = () => {
   );
 };
 
-export default HomeSection;
+export default AboutSection;
