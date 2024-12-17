@@ -18,12 +18,16 @@ const ProjectCard: React.FC<{
       height: '450px',
       maxWidth: '800px',
       backgroundColor: 'white',
+      position: 'relative',
     },
     projectFoot: {
-      marginTop: '22%',
       display: 'flex',
-      gap: '80px',
       justifyContent: 'space-between',
+      position: 'absolute', 
+      bottom: '16px',
+      left: '16px', 
+      right: '16px', 
+      gap: '16px',
     },
     projectLink: {
       fontSize: '18px',
@@ -40,12 +44,22 @@ const ProjectCard: React.FC<{
       fontSize: '18px',
       height: '80px',
       color: '#c77dff', 
+      marginTop: '-10%',
+    },
+    projectHeader: {
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      margin: 0, 
+      gap: '4px', 
     },
     paragraph: {
       fontSize: '16px',
       flexGrow: 1,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
+      marginTop: '-5%',
     },
     color2: {
       color: '#e0aaff', 
@@ -58,8 +72,10 @@ const ProjectCard: React.FC<{
   return (
     <div style={styles.projectCard}>
       <div style={styles.projectBody}>
-        <h1 style={styles.header1}>{title}</h1>
-        <h2 style={styles.header2}>{techStack}</h2>
+        <div style={styles.projectHeader}>
+          <h1 style={styles.header1}>{title}</h1>
+          <h2 style={styles.header2}>{techStack}</h2>
+        </div>
         <p style={styles.paragraph}>{description}</p>
       </div>
       <div style={styles.projectFoot}>

@@ -23,10 +23,17 @@ const ExperienceCard: React.FC<{
     },
     experienceBody: {
       textAlign: 'center',
-      marginBottom: '16px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+    },
+    experienceHeader: {
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      margin: 0, 
+      gap: '4px', 
     },
     experienceFoot: {
       display: 'flex',
@@ -34,8 +41,8 @@ const ExperienceCard: React.FC<{
       alignItems: 'center',
     },
     experienceFootImg: {
-      width: '100px',
-      height: '100px',
+      width: '75px',
+      height: '75px',
       borderRadius: '4px',
       transition: 'transform 0.2s',
       transform: hover ? 'scale(1.1)' : 'scale(1)',
@@ -51,8 +58,10 @@ const ExperienceCard: React.FC<{
   return (
     <div style={styles.experienceCard}>
       <div style={styles.experienceBody}>
-        <h1 style={styles.color4}>{name}</h1>
-        <h2 style={styles.color1}>{title}</h2>
+        <div>
+          <h1 style={styles.color4}>{name}</h1>
+          <h2 style={styles.color1}>{title}</h2>
+        </div>
         <p>{description}</p>
       </div>
       <div style={styles.experienceFoot}>

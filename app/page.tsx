@@ -6,14 +6,13 @@ import AboutSection from './components/AboutSection.tsx';
 import ProjectSection from './components/ProjectSection.tsx';
 import ExperienceSection from './components/ExperienceSection.tsx';
 
-import styles from './style/page.module.css';
 export default function Home() {
   const [activeSection, setActiveSection] = useState('');
 
   return (
-    <div className={styles.pageContainer}>
+    <div>
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <div className={styles.content}>
+      <div>
         <HomeSection />
         <AboutSection/>
         <ProjectSection/>

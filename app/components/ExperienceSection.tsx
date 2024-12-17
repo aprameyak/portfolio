@@ -72,6 +72,7 @@ const ExperienceSection: React.FC = () => {
       flexDirection: 'column',
       paddingLeft: '15%',
       textAlign: 'center',
+      justifyContent: 'center', 
     },
     carouselContainer: {
       display: 'flex',

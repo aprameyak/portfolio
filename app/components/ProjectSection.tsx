@@ -93,6 +93,7 @@ const ProjectSection: React.FC = () => {
       paddingLeft: '15%',
       height: '100vh',
       textAlign: 'center',
+      justifyContent: 'center', 
     },
     carouselContainer: {
       display: 'flex',
