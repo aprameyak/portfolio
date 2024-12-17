@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import '../style/projectstyles.css';
 import ProjectCard from './ProjectCard';
 
 const ProjectSection: React.FC = () => {

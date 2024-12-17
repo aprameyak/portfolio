@@ -1,5 +1,4 @@
 'use client';
-import Image from "next/image";
 
 const HomeSection: React.FC = () => {
   const styles: { [key: string]: React.CSSProperties } = {
@@ -42,12 +41,16 @@ const HomeSection: React.FC = () => {
       margin: '0',
       padding: '0',
     },
+    focustextH4: {
+      display: 'inline',
+      fontSize: 'large',
+    },
     nowrap: {
       whiteSpace: 'nowrap',
     },
     uniH1: {
       display: 'inline',
-      fontSize: 'large',
+      fontSize: 'xx-large',
     },
     color1: {
       color: '#c77dff',
@@ -80,29 +83,29 @@ const HomeSection: React.FC = () => {
         <div style={styles.focustext}>
           <h3 style={{ ...styles.focustextH3, ...styles.color3 }}>Focusing on</h3>
           <h3 style={styles.focustextH3}>&nbsp;</h3>
-          <span style={styles.color1}>software development</span>
+          <span style={{ ...styles.focustextH4, ...styles.color1 }}>software development</span>
           <h3 style={{ ...styles.focustextH3, ...styles.color3 }}>,</h3>
           <h3 style={styles.focustextH3}>&nbsp;</h3>
-          <span style={styles.color1}>cloud computing</span>
+          <span style={{ ...styles.focustextH4, ...styles.color1 }}>cloud computing</span>
           <h3 style={{ ...styles.focustextH3, ...styles.color3 }}>, and</h3>
           <h3 style={styles.focustextH3}>&nbsp;</h3>
-          <span style={styles.color1}>artificial intelligence</span>
+          <span style={{ ...styles.focustextH4, ...styles.color1 }}>artificial intelligence</span>
           <h3 style={{ ...styles.focustextH3, ...styles.color3 }}>.</h3>
         </div>
         <div style={styles.socials}>
           <div>
             <a href="https://www.github.com/aprameyak/">
-              <Image src="/github.jpg" alt="GitHub" width={50} height={50} />
+              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/github.png" alt="GitHub" width={50} height={50} />
             </a>
           </div>
           <div>
             <a href="https://www.linkedin.com/in/aprameyak/">
-              <Image src="/linkedin.jpg" alt="LinkedIn" width={50} height={50} />
+              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/linkedin.png" alt="LinkedIn" width={50} height={50} />
             </a>
           </div>
           <div>
             <a href="https://medium.com/@aprameyakannan">
-              <Image src="/medium.jpg" alt="Medium" width={50} height={50} />
+              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/medium.jpg" alt="Medium" width={50} height={50} />
             </a>
           </div>
         </div>

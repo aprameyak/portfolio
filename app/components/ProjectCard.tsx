@@ -19,13 +19,10 @@ const ProjectCard: React.FC<{
       maxWidth: '800px',
       backgroundColor: 'white',
     },
-    projectBody: {
-      flexGrow: 1,
-    },
     projectFoot: {
-      marginTop: 'auto',
+      marginTop: '22%',
       display: 'flex',
-      gap: '8px',
+      gap: '80px',
       justifyContent: 'space-between',
     },
     projectLink: {
