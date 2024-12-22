@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header.tsx';
 import HomeSection from './components/HomeSection.tsx';
 import AboutSection from './components/AboutSection.tsx';
@@ -8,10 +8,25 @@ import ExperienceSection from './components/ExperienceSection.tsx';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); 
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div>
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      {!isMobile && <Header activeSection={activeSection} setActiveSection={setActiveSection} />}
       <div>
         <HomeSection />
         <AboutSection/>
