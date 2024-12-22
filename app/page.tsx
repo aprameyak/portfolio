@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header.tsx';
 import HomeSection from './components/HomeSection.tsx';
 import AboutSection from './components/AboutSection.tsx';
