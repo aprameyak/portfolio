@@ -1,9 +1,32 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 
 const ProjectSection: React.FC = () => {
   const projects = [
+    {
+      title: 'LaughALot',
+      description:
+        "Developed a serverless Generative AI-powered joke generator leveraging OpenAI's GPT-4 model optimizing responses through fine-tuned parameters like temperature, top_p, and maxTokens via LangChain for contextual joke creation. Built a stateless JavaScript API with ternary GET/POST routes tested on Postman to create jokes on user-provided or general topics. Created a responsive and secure interface using React.js and MaterialUI for seamless experience authentication through Clerk, enabling login via identity federation. Designed CI/CD pipelines with GitHub Actions and Vercel to streamline code deployment with continuous integration and delivery.",
+      github: 'https://github.com/aprameyak/LaughALot',
+      techStack: 'React.js, Next.js, JavaScript, LangChain, MaterialUI, Clerk, Vercel',
+      liveDemo: 'https://laughalot.vercel.app/',
+    },
+    {
+      title: 'StockUp',
+      description:
+        "Designed and developed a functional kitchen pantry management system with full CRUD (Create, Read, Update, Delete) operations via a Google Cloud Platform Firebase NoSQL database. Built a RESTful JavaScript API to handle front-end interactions and synchronize real-time updates with the MaterialUI interface. Delivered a highly interactive experience by integrating real-time search, modal-based item addition, and bulk inventory updates as features to enhance the user experience.",
+      github: 'https://github.com/aprameyak/KitchenPantryApp',
+      techStack: 'React.js, Next.js, Firebase Firestore, Google Cloud Platform, MaterialUI',
+      liveDemo: 'https://pantryapp-iota.vercel.app/?vercelToolbarCode=IULSuS2R3DuSkdh',
+    },
+    {
+      title: 'ScoreMe',
+      description:
+        "Cleaned and analyzed a Kaggle CSV dataset containing student exam performance using Pandas, Matplotlib, and Seaborn in a Jupyter Notebook. Trained a Scikit-Learn linear regression model to predict student exam performance, achieving 98.8% accuracy, and used Pickle to save and load the trained model for reuse. Developed a React.js front-end interface that accepts user inputs and sends HTTP POST requests to a Flask API, to return dynamic exam performance predictions. Ensured smooth integration between the front-end and back-end by providing real-time exam score predictions ranging from 0 to 100.",
+      github: 'https://github.com/aprameyak/PredictingStudentPerformance',
+      techStack: 'Python, JavaScript, Flask, Scikit-Learn, Pandas, Matplotlib, Seaborn, Pickle, Jupyter',
+    },
     {
       title: "New York Times' Wordle Game Clone",
       description:
@@ -12,34 +35,11 @@ const ProjectSection: React.FC = () => {
       techStack: "Python, FastAPI, React.js, JavaScript, CORS Middleware",
     },
     {
-      title: 'LaughALot - AI-Powered Joke Generator',
-      description:
-        "Developed a serverless Generative AI-powered joke generator leveraging OpenAI's GPT-4 model optimizing responses through fine-tuned parameters like temperature, top_p, and maxTokens via LangChain for contextual joke creation. Built a stateless JavaScript API with ternary GET/POST routes tested on Postman to create jokes on user-provided or general topics. Created a responsive and secure interface using React.js and MaterialUI for seamless experience authentication through Clerk, enabling login via identity federation. Designed CI/CD pipelines with GitHub Actions and Vercel to streamline code deployment with continuous integration and delivery.",
-      github: 'https://github.com/aprameyak/LaughALot',
-      techStack: 'React.js, Next.js, JavaScript, LangChain, MaterialUI, Clerk, Vercel',
-      liveDemo: 'https://laughalot.vercel.app/',
-    },
-    {
-      title: 'Kitchen Pantry Management Interface',
-      description:
-        "Designed and developed a functional kitchen pantry management system with full CRUD (Create, Read, Update, Delete) operations via a Google Cloud Platform Firebase NoSQL database. Built a RESTful JavaScript API to handle front-end interactions and synchronize real-time updates with the MaterialUI interface. Delivered a highly interactive experience by integrating real-time search, modal-based item addition, and bulk inventory updates as features to enhance the user experience.",
-      github: 'https://github.com/aprameyak/KitchenPantryApp',
-      techStack: 'React.js, Next.js, Firebase Firestore, Google Cloud Platform, MaterialUI',
-      liveDemo: 'https://pantryapp-iota.vercel.app/?vercelToolbarCode=IULSuS2R3DuSkdh',
-    },
-    {
       title: 'Car Safety Classifier',
       description:
         "Extracted and cleaned data from a Kaggle CSV file, preparing a dataset containing car features using a Pandas dataframe in a Jupyter Notebook. Utilized Numpy, Seaborn, and Matplotlib to visualize and analyze key features related to car safety, uncovering valuable insights for model improvement. Built and trained a Random Forest Classifier model using Scikit-Learn, optimizing the model by achieving 94.6% accuracy with 100 decision trees using K-Nearest Neighbors (KNN) to further improve classification results and refine model predictions.",
       github: 'https://github.com/aprameyak/CarSafetyClassifier',
       techStack: 'Python, Scikit-Learn, Matplotlib, Pandas, Seaborn, Numpy, Jupyter',
-    },
-    {
-      title: 'Student Exam Score Predictor',
-      description:
-        "Cleaned and analyzed a Kaggle CSV dataset containing student exam performance using Pandas, Matplotlib, and Seaborn in a Jupyter Notebook. Trained a Scikit-Learn linear regression model to predict student exam performance, achieving 98.8% accuracy, and used Pickle to save and load the trained model for reuse. Developed a React.js front-end interface that accepts user inputs and sends HTTP POST requests to a Flask API, to return dynamic exam performance predictions. Ensured smooth integration between the front-end and back-end by providing real-time exam score predictions ranging from 0 to 100.",
-      github: 'https://github.com/aprameyak/PredictingStudentPerformance',
-      techStack: 'Python, JavaScript, Flask, Scikit-Learn, Pandas, Matplotlib, Seaborn, Pickle, Jupyter',
     },
     {
       title: 'Streaming Platform Data Visualization',
@@ -66,20 +66,17 @@ const ProjectSection: React.FC = () => {
     },
   ];
 
-  
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-    );
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    return () => clearInterval(intervalId);
+  }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
     myProjects: {
@@ -93,7 +90,7 @@ const ProjectSection: React.FC = () => {
       paddingLeft: '15%',
       height: '100vh',
       textAlign: 'center',
-      justifyContent: 'center', 
+      justifyContent: 'center',
     },
     carouselContainer: {
       display: 'flex',
@@ -108,33 +105,11 @@ const ProjectSection: React.FC = () => {
       height: 'auto',
       overflow: 'hidden',
     },
-    arrowBtn: {
-      backgroundColor: '#5a189a',
-      color: 'white',
-      border: 'none',
-      padding: '10px 20px',
-      cursor: 'pointer',
-      borderRadius: '5px',
-      fontSize: '1.2rem',
-    },
-    upArrow: {
-      marginBottom: '10px',
-    },
-    downArrow: {
-      marginTop: '10px',
-    },
   };
 
   return (
     <section id="projects" style={styles.myProjects}>
       <div style={styles.carouselContainer}>
-        <button
-          style={styles.arrowBtn}
-          className="up-arrow"
-          onClick={handlePrev}
-        >
-          &uarr;
-        </button>
         <div style={styles.carouselContent}>
           <ProjectCard
             title={projects[currentIndex].title}
@@ -145,13 +120,6 @@ const ProjectSection: React.FC = () => {
             liveDemo={projects[currentIndex].liveDemo}
           />
         </div>
-        <button
-          style={styles.arrowBtn}
-          className="down-arrow"
-          onClick={handleNext}
-        >
-          &darr;
-        </button>
       </div>
     </section>
   );

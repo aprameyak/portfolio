@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
   }, [activeSection]);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section'); // Get all sections
+    const sections = document.querySelectorAll('section'); 
     const options = {
       root: null,
       rootMargin: '0px',

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ExperienceCard from './ExperienceCard';
 
 const ExperienceSection: React.FC = () => {
@@ -24,7 +24,7 @@ const ExperienceSection: React.FC = () => {
       name: 'CodePath',
       title: 'Technical Interview Prep Student',
       description:
-        'Completed an intensive 10-week CodePath Technical Interview Prep program, with a focus on strengthening problem-solving skills and preparing for technical interviews at top tech companies. The program emphasized fundamental concepts such as arrays, linked lists, trees, graphs, dynamic programming, and sorting algorithms, with all solutions implemented and optimized in Python. It included weekly coding assignments, timed mock interviews, and collaborative peer-learning sessions, developing the ability to tackle complex technical problems effectively under time constraints.',
+        'Completed an intensive 10-week Technical Interview Prep program, with a focus on strengthening problem-solving skills and preparing for technical interviews at top tech companies. The program emphasized fundamental concepts such as arrays, linked lists, trees, graphs, dynamic programming, and sorting algorithms, with all solutions implemented and optimized in Python. It included weekly coding assignments, timed mock interviews, and collaborative peer-learning sessions, developing the ability to tackle complex technical problems effectively under time constraints.',
       picture: 'https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/codepath.jpg',
       picturelink: 'https://www.codepath.org/',
     },
@@ -48,17 +48,16 @@ const ExperienceSection: React.FC = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? experiences.length - 1 : prevIndex - 1
-    );
-  };
+  // Use useEffect to automatically move through experiences every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); 
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    return () => clearInterval(interval); 
+  }, [experiences.length]);
 
   const styles: { [key: string]: React.CSSProperties } = {
     myexperience: {
@@ -87,33 +86,11 @@ const ExperienceSection: React.FC = () => {
       height: 'auto',
       overflow: 'hidden',
     },
-    arrowBtn: {
-      backgroundColor: '#5a189a',
-      color: 'white',
-      border: 'none',
-      padding: '10px 20px',
-      cursor: 'pointer',
-      borderRadius: '5px',
-      fontSize: '1.2rem',
-    },
-    upArrow: {
-      marginBottom: '10px',
-    },
-    downArrow: {
-      marginTop: '10px',
-    },
   };
 
   return (
     <section id="experience" style={styles.myexperience}>
       <div style={styles.carouselContainer}>
-        <button
-          style={styles.arrowBtn}
-          className="up-arrow"
-          onClick={handlePrev}
-        >
-          &uarr;
-        </button>
         <div style={styles.carouselContent}>
           <ExperienceCard
             name={experiences[currentIndex].name}
@@ -123,13 +100,6 @@ const ExperienceSection: React.FC = () => {
             picturelink={experiences[currentIndex].picturelink}
           />
         </div>
-        <button
-          style={{ ...styles.arrowBtn, ...styles.arrowBtnHover }}
-          className="down-arrow"
-          onClick={handleNext}
-        >
-          &darr;
-        </button>
       </div>
     </section>
   );
