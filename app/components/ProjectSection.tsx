@@ -70,15 +70,21 @@ const ProjectSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-    );
+    console.log('Prev button clicked, current index:', currentIndex);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex === 0 ? projects.length - 1 : prevIndex - 1;
+      console.log('Updated index after Prev:', newIndex);
+      return newIndex;
+    });
   };
-
+  
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-    );
+    console.log('Next button clicked, current index:', currentIndex);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex === projects.length - 1 ? 0 : prevIndex + 1;
+      console.log('Updated index after Next:', newIndex);
+      return newIndex;
+    });
   };
 
   const styles: { [key: string]: React.CSSProperties } = {
