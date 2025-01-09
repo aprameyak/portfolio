@@ -76,7 +76,7 @@ const ProjectSection: React.FC = () => {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [projects.length]);
 
   const styles: { [key: string]: React.CSSProperties } = {
     myProjects: {
