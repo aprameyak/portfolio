@@ -4,6 +4,13 @@ import ProjectCard from './ProjectCard';
 const ProjectSection: React.FC = () => {
   const projects = [
     {
+      title: 'FitSync',
+      description:
+        "Developed a MERN stack application for fitness goal tracking. Enabled user login with Google Cloud Platform Firebase Firestore authentication. Allowed users to enter fitness profiles and log nutrition and fitness data, which are written to MongoDB via Express.js middleware in the Node.js API. Conducted unit tests on API routes to ensure functionality and seamless integration with the frontend. Integrated a GPT-powered chatbot to offer personalized fitness advice. Displayed users' basal metabolic rate and calorie consumption and expenditure. Designed a simple, intuitive frontend using TypeScript, MaterialUI, and React.js hooks.",
+      github: 'https://github.com/aprameyak/FitSync',
+      techStack: 'Node.js, Express.js, Next.js, React.js, JavaScript, Typescript, MaterialUI, MongoDB, AWS S3',
+    },
+    {
       title: 'LaughALot',
       description:
         "Developed a serverless Generative AI-powered joke generator leveraging OpenAI's GPT-4 model optimizing responses through fine-tuned parameters like temperature, top_p, and maxTokens via LangChain for contextual joke creation. Built a stateless JavaScript API with ternary GET/POST routes tested on Postman to create jokes on user-provided or general topics. Created a responsive and secure interface using React.js and MaterialUI for seamless experience authentication through Clerk, enabling login via identity federation. Designed CI/CD pipelines with GitHub Actions and Vercel to streamline code deployment with continuous integration and delivery.",
