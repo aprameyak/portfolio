@@ -66,18 +66,6 @@ const ProjectSection: React.FC = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [projects.length]);
-
   const styles: { [key: string]: React.CSSProperties } = {
     myProjects: {
       fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
@@ -87,40 +75,41 @@ const ProjectSection: React.FC = () => {
       display: 'flex',
       flexDirection: 'column',
       boxSizing: 'border-box',
-      paddingLeft: '15%',
-      height: '100vh',
-      textAlign: 'center',
-      justifyContent: 'center',
+      padding: '0',
+      height: '100vh', 
+      overflowY: 'auto',
+      scrollSnapType: 'y mandatory', 
+      paddingBottom: '20%',
+      paddingTop: '20%'
     },
-    carouselContainer: {
+    projectContainer: {
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'center',
       alignItems: 'center',
-      gap: '10px',
-      position: 'relative',
-    },
-    carouselContent: {
+      gap: '20px',
       width: '100%',
-      maxWidth: '600px',
-      height: 'auto',
-      overflow: 'hidden',
+      height: '100vh', 
+      scrollSnapAlign: 'start', 
+      padding: '20px',
+      boxSizing: 'border-box',
     },
   };
 
   return (
     <section id="projects" style={styles.myProjects}>
-      <div style={styles.carouselContainer}>
-        <div style={styles.carouselContent}>
+      {projects.map((project, index) => (
+        <div key={index} style={styles.projectContainer}>
           <ProjectCard
-            title={projects[currentIndex].title}
-            description={projects[currentIndex].description}
-            github={projects[currentIndex].github}
-            techStack={projects[currentIndex].techStack}
-            documentation={projects[currentIndex].documentation}
-            liveDemo={projects[currentIndex].liveDemo}
+            title={project.title}
+            description={project.description}
+            github={project.github}
+            techStack={project.techStack}
+            documentation={project.documentation}
+            liveDemo={project.liveDemo}
           />
         </div>
-      </div>
+      ))}
     </section>
   );
 };

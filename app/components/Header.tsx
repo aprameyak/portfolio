@@ -66,8 +66,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       height: '100%',
     },
     active: {
-      textShadow: '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.8)',
-      color: 'white',
+      color: '#5a189a',
+      textDecoration: 'none',
     },
     link: {
       textDecoration: 'none',
@@ -101,6 +101,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
           onClick={() => setActiveSection('projects')}
         >
           <h1 style={activeSection === 'projects' ? styles.active : {}}>Projects</h1>
+        </a>
+        <a
+          href="#skills"
+          className={`link ${getHeaderClass('skills')}`}
+          style={styles.link}
+          onClick={() => setActiveSection('skills')}
+        >
+          <h1 style={activeSection === 'skills' ? styles.active : {}}>Skills</h1>
         </a>
         <a
           href="#experience"

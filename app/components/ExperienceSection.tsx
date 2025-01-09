@@ -45,19 +45,7 @@ const ExperienceSection: React.FC = () => {
       picturelink: 'https://aws.amazon.com/?nc2=h_lg',
     },
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Use useEffect to automatically move through experiences every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); 
-
-    return () => clearInterval(interval); 
-  }, [experiences.length]);
+  
 
   const styles: { [key: string]: React.CSSProperties } = {
     myexperience: {
@@ -66,41 +54,42 @@ const ExperienceSection: React.FC = () => {
       fontWeight: 'normal',
       backgroundColor: 'rgb(67, 67, 67)',
       display: 'flex',
-      boxSizing: 'border-box',
-      height: '100vh',
       flexDirection: 'column',
-      paddingLeft: '15%',
-      textAlign: 'center',
-      justifyContent: 'center', 
+      boxSizing: 'border-box',
+      padding: '0',
+      height: '100vh',
+      overflowY: 'auto',
+      scrollSnapType: 'y mandatory',
+      paddingBottom: '20%',
+      paddingTop: '20%',
     },
-    carouselContainer: {
+    experienceContainer: {
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'center',
       alignItems: 'center',
-      gap: '10px',
-      position: 'relative',
-    },
-    carouselContent: {
+      gap: '20px',
       width: '100%',
-      maxWidth: '600px',
-      height: 'auto',
-      overflow: 'hidden',
+      height: '100vh',
+      scrollSnapAlign: 'start',
+      padding: '20px',
+      boxSizing: 'border-box',
     },
   };
 
   return (
     <section id="experience" style={styles.myexperience}>
-      <div style={styles.carouselContainer}>
-        <div style={styles.carouselContent}>
+      {experiences.map((experience, index) => (
+        <div key={index} style={styles.experienceContainer}>
           <ExperienceCard
-            name={experiences[currentIndex].name}
-            title={experiences[currentIndex].title}
-            description={experiences[currentIndex].description}
-            picture={experiences[currentIndex].picture}
-            picturelink={experiences[currentIndex].picturelink}
+            name={experience.name}
+            title={experience.title}
+            description={experience.description}
+            picture={experience.picture}
+            picturelink={experience.picturelink}
           />
         </div>
-      </div>
+      ))}
     </section>
   );
 };

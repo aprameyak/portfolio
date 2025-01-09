@@ -5,6 +5,7 @@ import HomeSection from './components/HomeSection.tsx';
 import AboutSection from './components/AboutSection.tsx';
 import ProjectSection from './components/ProjectSection.tsx';
 import ExperienceSection from './components/ExperienceSection.tsx';
+import Skills from './components/Skills.tsx';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('');
@@ -31,6 +32,7 @@ export default function Home() {
         <HomeSection />
         <AboutSection/>
         <ProjectSection/>
+        <Skills/>
         <ExperienceSection/>
       </div>
     </div>
