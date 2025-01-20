@@ -35,7 +35,7 @@ const Skills: React.FC = () => {
     'AWS EventBridge',
     'AWS API Gateway',
     'AWS DynamoDB',
-    'AWS CodePipeline'
+    'AWS CodePipeline',
     'AWS Amplify',
     'AWS Cognito',
     'GCP Firebase',
