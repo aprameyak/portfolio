@@ -16,10 +16,10 @@ const AboutSection: React.FC = () => {
     },
     socials: {
       position: 'absolute',
-      bottom: '10px',
-      right: '10px',
+      bottom: '5%',
+      right: '5%',
       display: 'flex',
-      gap: '10px',
+      gap: '2%',  // Space between icons
     },
     aboutmetext: {
       textAlign: 'center',
@@ -28,10 +28,10 @@ const AboutSection: React.FC = () => {
       alignItems: 'flex-start',
       justifyContent: 'center',
       margin: '0 auto',
-      padding: '20px',
+      padding: '2%',
       width: '80%',
       maxWidth: '800px',
-      gap: '10px',
+      gap: '1%',
     },
     focustext: {
       textAlign: 'left',
@@ -68,6 +68,12 @@ const AboutSection: React.FC = () => {
     color5: {
       color: '#5a189a',
     },
+    socialIcon: {
+      width: '8vw', // 8% of the viewport width (responsive)
+      height: '8vw', // Height will scale with width
+      maxWidth: '50px', // Ensure the icon doesn't grow too large
+      maxHeight: '50px', // Ensure the icon doesn't grow too large
+    }
   };
 
   return (
@@ -96,17 +102,29 @@ const AboutSection: React.FC = () => {
         <div style={styles.socials}>
           <div>
             <a href="https://www.github.com/aprameyak/">
-              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/github.png" alt="GitHub" width={50} height={50} />
+              <img
+                src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/github.png"
+                alt="GitHub"
+                style={styles.socialIcon}
+              />
             </a>
           </div>
           <div>
             <a href="https://www.linkedin.com/in/aprameyak/">
-              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/linkedin.png" alt="LinkedIn" width={50} height={50} />
+              <img
+                src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/linkedin.png"
+                alt="LinkedIn"
+                style={styles.socialIcon}
+              />
             </a>
           </div>
           <div>
             <a href="https://medium.com/@aprameyakannan">
-              <img src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/medium.jpg" alt="Medium" width={50} height={50} />
+              <img
+                src="https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/medium.jpg"
+                alt="Medium"
+                style={styles.socialIcon}
+              />
             </a>
           </div>
         </div>

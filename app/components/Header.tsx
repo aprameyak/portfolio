@@ -7,7 +7,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
-
   useEffect(() => {
     console.log('Active Section changed:', activeSection);
   }, [activeSection]);
@@ -35,10 +34,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     };
   }, [setActiveSection]);
 
-
   const getHeaderClass = (section: string): string => {
-    const isActive = activeSection === section;
-    return isActive ? 'active' : ''; 
+    return activeSection === section ? 'active' : ''; 
   };
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -46,18 +43,19 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       display: 'flex',
       flexDirection: 'column',
       fontFamily: 'Arial, Helvetica, sans-serif',
-      fontSize: 'medium',
+      fontSize: '1.5vw', // Smaller font size
       fontWeight: 'bold',
       position: 'fixed',
       justifyContent: 'space-evenly', 
       top: '0',
       left: '0',
-      height: '100vh',
-      width: '200px',
+      height: '100%',
+      width: '15%',
       zIndex: 1000,
-      paddingLeft: '1%',
+      paddingLeft: '2%',
       boxShadow: '2px 0px 5px rgba(0, 0, 0, 0.2)',
       backgroundColor: 'rgb(100, 100, 100)',
+      overflowY: 'auto', // Prevents the header from overflowing vertically
     },
     headertext: {
       display: 'flex',
@@ -72,54 +70,36 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     link: {
       textDecoration: 'none',
       color: '#5a189a',
+      fontSize: '1.2vw', // Slightly smaller font size for links
+      whiteSpace: 'nowrap', // Prevents text from wrapping and causing overflow
+    },
+    content: {
+      marginLeft: '18%', // Ensures content doesn't overlap with the fixed header
     },
   };
 
   return (
-    <header style={styles.headersection}>
-      <div style={styles.headertext}>
-        <a
-          href="#home"
-          className={`link ${getHeaderClass('home')}`}
-          style={styles.link}
-          onClick={() => setActiveSection('home')}
-        >
-          <h1 style={activeSection === 'home' ? styles.active : {}}>Home</h1>
-        </a>
-        <a
-          href="#about"
-          className={`link ${getHeaderClass('about')}`}
-          style={styles.link}
-          onClick={() => setActiveSection('about')}
-        >
-          <h1 style={activeSection === 'about' ? styles.active : {}}>About</h1>
-        </a>
-        <a
-          href="#projects"
-          className={`link ${getHeaderClass('projects')}`}
-          style={styles.link}
-          onClick={() => setActiveSection('projects')}
-        >
-          <h1 style={activeSection === 'projects' ? styles.active : {}}>Projects</h1>
-        </a>
-        <a
-          href="#skills"
-          className={`link ${getHeaderClass('skills')}`}
-          style={styles.link}
-          onClick={() => setActiveSection('skills')}
-        >
-          <h1 style={activeSection === 'skills' ? styles.active : {}}>Skills</h1>
-        </a>
-        <a
-          href="#experience"
-          className={`link ${getHeaderClass('experience')}`}
-          style={styles.link}
-          onClick={() => setActiveSection('experience')}
-        >
-          <h1 style={activeSection === 'experience' ? styles.active : {}}>Experience</h1>
-        </a>
+    <>
+      <header style={styles.headersection}>
+        <div style={styles.headertext}>
+          {['home', 'about', 'projects', 'skills', 'experience'].map((section) => (
+            <a
+              key={section}
+              href={`#${section}`}
+              className={`link ${getHeaderClass(section)}`}
+              style={styles.link}
+              onClick={() => setActiveSection(section)}
+            >
+              <h1 style={activeSection === section ? styles.active : {}}>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+            </a>
+          ))}
+        </div>
+      </header>
+      {/* Adjusting content area to not overlap with fixed header */}
+      <div style={styles.content}>
+        {/* Other content goes here */}
       </div>
-    </header>
+    </>
   );
 };
 

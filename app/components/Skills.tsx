@@ -52,32 +52,34 @@ const Skills: React.FC = () => {
   const styles: { [key: string]: React.CSSProperties } = {
     section: {
       backgroundColor: 'rgb(67, 67, 67)',
-      padding: '50px 20px',
+      padding: '5vw 3vw',
       color: '#fff',
       fontFamily: 'Arial, sans-serif',
       textAlign: 'center',
       boxSizing: 'border-box',
-      height: '100vh',
-      marginLeft: '200px',
+      minHeight: '100vh',
+      marginLeft: '15%',
+      marginRight: '0',
+      width: '85%',
     },
     heading: {
-      fontSize: '2.5rem',
-      marginBottom: '40px',
+      fontSize: '5vw',
+      marginBottom: '5vw',
       color: '#e0aaff',
       fontWeight: 'bold',
     },
     skillsContainer: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-      gap: '20px',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 30%))',
+      gap: '5vw',
       justifyContent: 'center',
     },
     skillCard: {
       backgroundColor: '#5a189a',
-      padding: '15px 20px',
+      padding: '3vw 4vw',
       borderRadius: '8px',
       textTransform: 'capitalize',
-      fontSize: '1.1rem',
+      fontSize: '1.5vw',
       color: '#f1faee',
       boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
       transition: 'all 0.3s ease-in-out',
@@ -88,8 +90,20 @@ const Skills: React.FC = () => {
     },
   };
 
+  const mobileStyles: React.CSSProperties = {
+    ...styles.section,
+    marginLeft: '0',
+    width: '100%',
+  };
+
+  const tabletStyles: React.CSSProperties = {
+    ...styles.section,
+    marginLeft: '0',
+    width: '100%',
+  };
+
   return (
-    <section id="skills" style={styles.section}>
+    <section id="skills" style={window.innerWidth <= 768 ? tabletStyles : mobileStyles}>
       <h2 style={styles.heading}>My Skills</h2>
       <div style={styles.skillsContainer}>
         {skills.map((skill, index) => (

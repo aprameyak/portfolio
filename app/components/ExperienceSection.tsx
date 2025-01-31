@@ -1,7 +1,10 @@
 'use client';
+import React, { useState } from 'react';
 import ExperienceCard from './ExperienceCard';
 
 const ExperienceSection: React.FC = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const experiences = [
     {
       name: 'Syntag',
@@ -17,7 +20,7 @@ const ExperienceSection: React.FC = () => {
       description:
         'Tested React.js, ChakraUI, and TypeScript, using organized Git source control actions to communicate progress on AGILE sprint deadlines. Leveraged Amazon Web Services (AWS) cloud infrastructure with ECR, ECS, and EC2, to decrease costs by 30% while hosting decoupled components as Docker images. Designed an interactive frontend that updated user metadata through a point system as part of a gamification initiative, resulting in a 40% boost in user engagement. Initialized a web application paper trading simulator, integrating a Python Flask API to retrieve and consistently update public stock data and user metadata.',
       picture: 'https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/minvest.jpg',
-      picturelink: 'https://www.minvestfinance.com/'
+      picturelink: 'https://www.minvestfinance.com/',
     },
     {
       name: 'CodePath',
@@ -35,7 +38,7 @@ const ExperienceSection: React.FC = () => {
       picture: 'https://aprameyak-portfolio-assets.s3.us-east-1.amazonaws.com/headstarter.jpg',
       picturelink: 'https://headstarter.co/',
     },
-    { 
+    {
       name: 'Amazon Web Services',
       title: 'Certified Solutions Architect',
       description:
@@ -44,7 +47,6 @@ const ExperienceSection: React.FC = () => {
       picturelink: 'https://aws.amazon.com/?nc2=h_lg',
     },
   ];
-  
 
   const styles: { [key: string]: React.CSSProperties } = {
     myexperience: {
@@ -56,39 +58,74 @@ const ExperienceSection: React.FC = () => {
       flexDirection: 'column',
       boxSizing: 'border-box',
       padding: '0',
-      height: '100vh',
+      minHeight: 'calc(100vh - 80px)', // Adjust height based on header size
       overflowY: 'auto',
-      scrollSnapType: 'y mandatory',
-      paddingBottom: '20%',
-      paddingTop: '20%',
+      paddingBottom: '10%',
+      paddingTop: '10%',
+      marginLeft: '15%', // Ensuring content is pushed to the right of the fixed header
     },
     experienceContainer: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: '20px',
+      gap: '2%',
       width: '100%',
-      height: '100vh',
-      scrollSnapAlign: 'start',
-      padding: '20px',
+      height: '100%',
+      padding: '0',
       boxSizing: 'border-box',
+    },
+    experienceList: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+      gap: '3%',
+      width: '100%',
+      padding: '0 5%',
+      boxSizing: 'border-box',
+    },
+    experienceCard: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+      padding: '20px',
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    },
+    experienceCardHover: {
+      transform: 'scale(1.05)',
+      boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
     },
   };
 
   return (
     <section id="experience" style={styles.myexperience}>
-      {experiences.map((experience, index) => (
-        <div key={index} style={styles.experienceContainer}>
-          <ExperienceCard
-            name={experience.name}
-            title={experience.title}
-            description={experience.description}
-            picture={experience.picture}
-            picturelink={experience.picturelink}
-          />
-        </div>
-      ))}
+      <div style={styles.experienceList}>
+        {experiences.map((experience, index) => (
+          <div
+            key={index}
+            style={styles.experienceContainer}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <div
+              style={{
+                ...styles.experienceCard,
+                ...(hoveredIndex === index ? styles.experienceCardHover : {}),
+              }}
+            >
+              <ExperienceCard
+                name={experience.name}
+                title={experience.title}
+                description={experience.description}
+                picture={experience.picture}
+                picturelink={experience.picturelink}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

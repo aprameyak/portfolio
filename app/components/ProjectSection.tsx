@@ -82,21 +82,17 @@ const ProjectSection: React.FC = () => {
       flexDirection: 'column',
       boxSizing: 'border-box',
       padding: '0',
-      height: '100vh', 
+      minHeight: '100vh',
       overflowY: 'auto',
-      scrollSnapType: 'y mandatory', 
-      paddingBottom: '20%',
-      paddingTop: '20%'
+      scrollSnapType: 'y mandatory',
+      paddingTop: '120px',
+      paddingLeft: '17%', // Added padding to avoid overlap with the header
     },
-    projectContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
+    projectGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
       gap: '20px',
       width: '100%',
-      height: '100vh', 
-      scrollSnapAlign: 'start', 
       padding: '20px',
       boxSizing: 'border-box',
     },
@@ -104,9 +100,10 @@ const ProjectSection: React.FC = () => {
 
   return (
     <section id="projects" style={styles.myProjects}>
-      {projects.map((project, index) => (
-        <div key={index} style={styles.projectContainer}>
+      <div style={styles.projectGrid}>
+        {projects.map((project, index) => (
           <ProjectCard
+            key={index}
             title={project.title}
             description={project.description}
             github={project.github}
@@ -114,8 +111,8 @@ const ProjectSection: React.FC = () => {
             documentation={project.documentation}
             liveDemo={project.liveDemo}
           />
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
